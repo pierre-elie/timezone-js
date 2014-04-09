@@ -339,7 +339,7 @@
     },
     getUTCDateProxy: function () {
       var dt = new Date(this._timeProxy);
-      dt.setUTCMinutes(dt.getUTCMinutes() + this.getTimezoneOffset());
+      dt.setUTCMinutes(dt.getUTCMinutes() + Number(this.getTimezoneOffset()));
       return dt;
     },
     setDate: function (date) {
@@ -468,7 +468,7 @@
       this.timezone = tz;
       this._useCache = false;
       // Set UTC minutes offsets by the delta of the two timezones
-      this.setUTCMinutes(this.getUTCMinutes() - this.getTimezoneInfo().tzOffset + previousOffset);
+      this.setUTCMinutes(this.getUTCMinutes() - this.getTimezoneInfo().tzOffset + Number(previousOffset));
     },
     removeTimezone: function () {
       this.timezone = null;
